@@ -1,0 +1,53 @@
+{% extends "hotel/base.html" %}
+{% block title %} Booking List {% endblock %}
+
+
+
+{% block content %}
+
+	<!-- end:fh5co-header -->
+	<div class="fh5co-parallax" style="background-image: url('/static/images/slider1.jpg');" data-stellar-background-ratio="0.5">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 text-center fh5co-table">
+					<div class="fh5co-intro fh5co-table-cell">
+						<h1 class="text-center">{{user}} Booking List </h1>
+                        
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+    <h2 style="text-align: center;">Welcome Dear {{ user }} To Your Booking List</h2>
+    <div id="fh5co-hotel-section">
+		<div class="container">
+            {% for booking in booking_list %}
+                <div class="row">
+                    <div class="col-md-4">
+                            <div class="hotel-content">
+                                    
+                                <div class="desc">
+                                    <h2 class="desc">You Booked {{ booking.get_room_category }} Suite</h2>
+
+                                    <h3>From: {{ booking.check_in_date }}</h3>
+                                    <h4>Time: {{ booking.check_in_time }}</h4>
+
+                                    <h3>To: {{ booking.check_out_date }}</h3>
+                                    <h4>Time: {{ booking.check_out_time }}</h4>
+
+                                    <h3>Beds: {{ booking.beds }}</h3>
+
+                                    <h3>Nmuber_of_occupant: {{ booking.number_of_occupant }} persons</h3>
+                                    <a href="{{booking.get_cancel_booking_url}}" class="btn btn-primary btn-lg">Cancel Booking</a>
+                                    
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <hr>
+            {% endfor %}
+            <hr>
+		</div>
+	</div>
+{% endblock %}

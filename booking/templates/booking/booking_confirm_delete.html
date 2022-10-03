@@ -1,0 +1,83 @@
+{% extends 'hotel/base.html' %}
+{% block title %}Detail Room{% endblock %}
+
+{% block content %}
+{% load static %}
+    <!-- end:fh5co-header -->
+    
+    <aside id="fh5co-hero" class="js-fullheight">
+        <div class="flexslider js-fullheight">
+            <ul class="slides">
+            <li style="background-image: url('/static/images/slider1.jpg');">
+                <div class="overlay-gradient"></div>
+                <div class="container">
+                    <div class="col-md-12 col-md-offset-0 text-center slider-text">
+                        <div class="slider-text-inner js-fullheight">
+                            
+                            <div class="desc">
+                                <p><span>{{ booking.get_room_category }} Suite</span></p>
+                                <h2>Reserve Room for Family Vacation</h2>
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem blanditiis debitis fuga dignissimos, ipsa est in asperiores impedit, praesentium labore porro distinctio rerum earum cum quam tempore, corrupti ratione perspiciatis?
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <li style="background-image: url('/static/images/slider2.jpg');">
+                <div class="overlay-gradient"></div>
+                <div class="container">
+                    <div class="col-md-12 col-md-offset-0 text-center slider-text">
+                        <div class="slider-text-inner js-fullheight">
+                            <div class="desc">
+                                <p><span>{{ booking.get_room_category }} Suite</span></p>
+                                <h2>Make Your Vacation Comfortable</h2>
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut sequi maiores veniam cupiditate natus quo sint recusandae quos impedit inventore pariatur tenetur, minima nobis facilis aperiam, corrupti libero dolorum necessitatibus.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <li style="background-image: url('/static/images/slider3.jpg');">
+                <div class="overlay-gradient"></div>
+                <div class="container">
+                    <div class="col-md-12 col-md-offset-0 text-center slider-text">
+                        <div class="slider-text-inner js-fullheight">
+                            <div class="desc">
+                                <p><span>{{ booking.get_room_category }} Suite</span></p>
+                                <h2>The Best Place To Enjoy Your Life</h2>
+                                <p>
+                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque possimus doloribus tempora perferendis alias incidunt nemo, quia rerum pariatur nisi, reiciendis quis! Laudantium cupiditate iste minus nemo, harum ad officiis?
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            
+            </ul>
+        </div>
+    </aside>
+
+
+    <div class="mx-auto col-5" style="margin-top: 15rem;">
+        <h2 style="text-align: center; padding: 3rem;">Confirm Cancel Booking</h2>
+        <form action="" method="post">
+            {% csrf_token %}
+            <div>
+                <h4>Pleace confirm Cancel Booking on {{booking.get_room_category}} from {{booking.check_in_date}} To {{ booking.check_out_date }}</h4>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg">Yes, Cancel</button>
+            <a href="{% url 'booking:BookingListView' %}" class="btn btn-primary btn-lg">No</a>
+        </form>
+
+    </div>
+
+    
+{% endblock %}

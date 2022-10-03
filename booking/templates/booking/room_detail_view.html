@@ -1,0 +1,115 @@
+{% extends 'hotel/base.html' %}
+{% block title %}{{ room_category }} DETAIL ROOM{% endblock %}
+
+{% block content %}
+{% load static %}
+    <!-- end:fh5co-header -->
+    
+    <aside id="fh5co-hero" class="js-fullheight">
+        <div class="flexslider js-fullheight">
+            <ul class="slides">
+            <li style="background-image: url('/static/images/slider1.jpg');">
+                <div class="overlay-gradient"></div>
+                <div class="container">
+                    <div class="col-md-12 col-md-offset-0 text-center slider-text">
+                        <div class="slider-text-inner js-fullheight">
+                            
+                            <div class="desc">
+                                <p><span>{{ room_category }} Suite</span></p>
+                                <h2>Reserve Room for Family Vacation</h2>
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem blanditiis debitis fuga dignissimos, ipsa est in asperiores impedit, praesentium labore porro distinctio rerum earum cum quam tempore, corrupti ratione perspiciatis?
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <li style="background-image: url('/static/images/slider2.jpg');">
+                <div class="overlay-gradient"></div>
+                <div class="container">
+                    <div class="col-md-12 col-md-offset-0 text-center slider-text">
+                        <div class="slider-text-inner js-fullheight">
+                            <div class="desc">
+                                <p><span>{{ room_category }} Suite</span></p>
+                                <h2>Make Your Vacation Comfortable</h2>
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut sequi maiores veniam cupiditate natus quo sint recusandae quos impedit inventore pariatur tenetur, minima nobis facilis aperiam, corrupti libero dolorum necessitatibus.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <li style="background-image: url('/static/images/slider3.jpg');">
+                <div class="overlay-gradient"></div>
+                <div class="container">
+                    <div class="col-md-12 col-md-offset-0 text-center slider-text">
+                        <div class="slider-text-inner js-fullheight">
+                            <div class="desc">
+                                <p><span>{{ room_category }} Suite</span></p>
+                                <h2>The Best Place To Enjoy Your Life</h2>
+                                <p>
+                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque possimus doloribus tempora perferendis alias incidunt nemo, quia rerum pariatur nisi, reiciendis quis! Laudantium cupiditate iste minus nemo, harum ad officiis?
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            
+            </ul>
+        </div>
+    </aside>
+
+
+    <div class="mx-auto col-5" style="margin-top: 15rem;">
+        <h2 style="text-align: center; padding: 3rem;">Book A Room</h2>
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="input-div">
+                <label for="id_check_in_date">Check in date:</label>
+                <input type="date" class="form-control" id="id_check_in_date" name="check_in_date" required>
+            </div>
+            
+            <div class="input-div">
+                <label for="id_check_in_time"><h4>Check In Time:</h4></label>
+                <input type="time" class="form-control" id="id_check_in_time" name="check_in_time" required>
+            </div>
+
+            <div class="input-div">
+                <label for="id_check_out_date"><h4>Check Out Date:</h4></label>
+                <input type="date" class="form-control" id="id_check_out_date" name="check_out_date" required>
+            </div>
+
+            <div class="input-div">
+                <label for="id_check_out_time"><h4>Check Out Time:</h4></label>
+                <input type="time" class="form-control" id="id_check_out_time" name="check_out_time" required>
+            </div>
+
+            <div class="input-div">
+                <label for="id_beds"><h4>Beds:</h4></label>
+                <input type="number" class="form-control" id="id_beds" name="beds" required maxlength="3">
+            </div>
+
+            <div class="input-div">
+                <label for="id_number_of_occupant"><h4>Number Of Occupant:</h4></label>
+                <input type="number" class="form-control" id="id_number_of_occupant" name="number_of_occupant" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg">Book Room</button>
+        </form>
+
+    </div>
+
+    <script>
+        config = {
+            enableTime: true,
+            dateFormat: "Y-m-d H:i",
+        }
+        flatpickr("input[type=datetime-local]", config);
+    </script>
+    
+{% endblock %}
