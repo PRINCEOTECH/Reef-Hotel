@@ -26,6 +26,8 @@
         <meta name="twitter:url" content="" />
         <meta name="twitter:card" content="" />
 
+        <!--for profile.html-->
+
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <link rel="shortcut icon" href="{% static 'favicon.ico' %}">
         <!-- <link href='https://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700italic,900,700,900italic' rel='stylesheet' type='text/css'> -->
@@ -89,22 +91,31 @@
                             <ul class="sf-menu" id="fh5co-primary-menu">
                                 <li><a class="active" href="{% url 'home' %}">Home</a></li>
                                 {% if user.is_authenticated %}
+                                    
                                     <li>
                                         <a href="{% url 'hotel' %}" class="fh5co-sub-ddown">Hotel</a>
-                                        <ul class="fh5co-sub-menu">
-                                                <li><a href="{% url 'RoomDetailView'category=LH ">Luxe Hotel</a></li>
-                                                <li><a href="">Deluxe Hotel</a></li>
-                                                <li>
-                                                    <a href="">King Hotel</a>
-                                                </li>
-                                                <li><a href="">Five Star Hotel</a></li> 
-                                        </ul>
+                                        
+                                            <ul class="fh5co-sub-menu">
+                                                
+                                                    <li><a href="{{room_url}}">{{room_category}}Luxe Hotel</a></li>
+                                                    <li><a href="">Deluxe Hotel</a></li>
+                                                    <li>
+                                                        <a href="">King Hotel</a>
+                                                    </li>
+                                                    <li><a href="">Five Star Hotel</a></li> 
+                                                
+                                            </ul>
                                         
                                     </li>
                                     <li><a href="{% url 'services' %}">Services</a></li>
                                     <li><a href="{% url 'blog' %}">Blog</a></li>
                                     <li><a href="{% url 'contact' %}">Contact</a></li>
-                                    <li><a href="{% url 'booking:BookingListView' %}">{{user}} Booking List</a></li>
+                                    {% if user.is_staff %}
+                                        <li><a href="{% url 'admin' %}">Admin Dashboard</a></li>
+                                    {% else %}
+                                        <li><a href="{% url 'Profile' %}">{{user}} Profile</a></li>
+                                        <li><a href="{% url 'booking:BookingListView' %}">{{user}} Booking List</a></li>
+                                    {% endif %}
                                     <li><a href="{% url 'logout' %}">Logout</a></li>
                                 {% else %}
                                     <li><a href="{% url 'register' %}">Register</a></li>

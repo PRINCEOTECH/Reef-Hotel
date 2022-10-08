@@ -19,6 +19,7 @@ class Room(models.Model):
 
 
 
+
 class Booking(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     room = models.ForeignKey(Room, on_delete=models.CASCADE)
@@ -30,7 +31,7 @@ class Booking(models.Model):
     number_of_occupant = models.IntegerField()
 
     def __str__(self):
-        return f"{self.user} Has Booked ||{self.room} With {self.beds} Bed For {self.number_of_occupant} Person/People From Date:{self.check_in_date} Time:{self.check_in_time} To Date:{self.check_out_date} Time{self.check_out_time} "
+        return f"{self.user} Has Booked ||{self.room} With {self.beds} Bed For {self.number_of_occupant} Person/People From Date:{self.check_in_date} Time:{self.check_in_time} To Date:{self.check_out_date} Time{self.check_out_time}"
 
 
     def get_room_category(self):

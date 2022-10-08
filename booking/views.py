@@ -75,7 +75,7 @@ class BookingView(FormView):
 
 
 class RoomDetailView(View):
-    def get(self, request, *args, **kwargs):
+    def get(self, request, *args, **kwargs,):
         category = self.kwargs.get('category', None)
         form = AvailabilityForm()
         room_list = Room.objects.filter(category=category)
@@ -118,7 +118,6 @@ class RoomDetailView(View):
                 check_out_time =  data['check_out_time'],
                 beds = data['beds'], 
                 number_of_occupant = data['number_of_occupant'],
-                
             )
             if booking.beds > 2:
                 return HttpResponse(f"Sorry Dear {User} Number of beds cannot be more than 2")
